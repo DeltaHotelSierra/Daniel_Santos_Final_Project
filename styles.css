@@ -192,6 +192,18 @@ header {
     padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+    .banner-container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-container {
+        padding: 0 1rem;
+    }
+}
+
 /* Hero name banner with responsive typography */
 .name-banner {
     font-weight: normal;
@@ -204,6 +216,21 @@ header {
     max-width: 90%;
     text-align: center;
     line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .name-banner {
+        font-size: clamp(1.5rem, 6vw, 4rem);
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-banner {
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        max-width: 100%;
+        letter-spacing: 0.1em;
+    }
 }
 
 @keyframes slide {
