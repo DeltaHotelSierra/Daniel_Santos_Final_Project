@@ -797,13 +797,15 @@ header {
     background-color: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 4rem 1rem;
+    padding: 3rem 1.5rem;
     text-align: center;
-    height: 350px;
+    min-height: 350px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .testimonial-card:hover {
@@ -813,6 +815,9 @@ header {
 
 .testimonial-text {
     margin-bottom: 2rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .testimonial-text p {
@@ -821,6 +826,8 @@ header {
     color: var(--silver);
     font-family: 'Trebuchet MS', sans-serif;
     font-style: italic;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .testimonial-text p::before {
@@ -896,12 +903,14 @@ header {
     }
 
     .testimonial-card {
-        padding: 2.5rem 1.25rem;
-        height: 320px;
+        padding: 2rem 1.25rem;
+        min-height: 320px;
+        height: auto;
     }
 
     .testimonial-text p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .testimonial-author h5 {
@@ -922,9 +931,19 @@ header {
     }
 
     .testimonial-card {
-        padding: 2rem 1rem;
-        height: 300px;
+        padding: 1.5rem 1rem;
         min-height: 280px;
+        height: auto;
+    }
+
+    .testimonial-text p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .testimonial-text p::before,
+    .testimonial-text p::after {
+        font-size: 1.5rem;
     }
 }
 
@@ -1431,14 +1450,23 @@ footer.footer {
 
     /* Testimonial Cards */
     .testimonial-card {
-        padding: 1.5rem 0.75rem;
-        height: 280px;
+        padding: 1.25rem 0.75rem;
         min-height: 260px;
+        height: auto;
+    }
+
+    .testimonial-text {
+        margin-bottom: 1rem;
     }
 
     .testimonial-text p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.4;
+    }
+
+    .testimonial-text p::before,
+    .testimonial-text p::after {
+        font-size: 1.25rem;
     }
 
     .testimonial-author h5 {
