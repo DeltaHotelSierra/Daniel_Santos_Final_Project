@@ -1,4 +1,22 @@
     // ============================================
+    // Navbar Collapse on Link Click
+    // ============================================
+    
+    // Close navbar menu when a nav link is clicked
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Only collapse if the navbar is currently expanded
+            if (navbarCollapse.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
+
+    // ============================================
     // Contact Form Handling
     // ============================================
     
