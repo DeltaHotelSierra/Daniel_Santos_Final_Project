@@ -365,12 +365,6 @@ header {
     margin-bottom: 2rem;
 }
 
-/* Ensure skill card columns flex properly */
-.skills-container .col-lg-3,
-.skills-container .col-md-6 {
-    display: flex;
-}
-
 /* Individual Skill Cards */
 .skill-card {
     background-color: rgba(31, 31, 33, 0.8);
@@ -386,7 +380,6 @@ header {
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
-    flex-grow: 1;
 }
 
 @media (max-width: 768px) {
@@ -466,6 +459,8 @@ header {
     flex-direction: column;
     gap: 0.5rem;
     align-items: stretch;
+    flex: 1;
+    justify-content: center;
 }
 
 .skill-percentage {
