@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbarCollapse = document.querySelector('.navbar-collapse');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    console.log('Navbar setup - toggler:', navbarToggler, 'collapse:', navbarCollapse, 'links:', navLinks.length);
+
     // Close navbar when a nav link is clicked
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            console.log('Nav link clicked:', this.textContent);
             // Only close if navbar is open
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                console.log('Navbar is open, closing it');
                 // Remove the show class to hide the navbar
                 navbarCollapse.classList.remove('show');
                 // Add collapsed class to toggler button
@@ -22,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarToggler) {
                     navbarToggler.setAttribute('aria-expanded', 'false');
                 }
+                console.log('Navbar closed');
+            } else {
+                console.log('Navbar not open or elements missing');
             }
         });
     });
