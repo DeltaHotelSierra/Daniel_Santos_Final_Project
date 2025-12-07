@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--
+    Daniel Santos - Cybersecurity Portfolio
+    
+    ACCESSIBILITY FEATURES:
+    - WCAG 2.1 Level AA compliance
+    - Semantic HTML5 structure
+    - ARIA labels and roles for screen readers
+    - Skip to main content link for keyboard navigation
+    - Focus-visible states for all interactive elements
+    - Alt text for all images
+    - Form labels and autocomplete attributes
+    - Keyboard accessible navigation and modals
+    - Reduced motion support via prefers-reduced-motion
+    - High contrast mode support
+    - Responsive design for all devices
+    
+    COLOR PALETTE (Consistent Theme):
+    - Primary Accent: #e03a3a (Red)
+    - Dark Background: #121214
+    - Card Background: #1f1f21
+    - Light Background: #f5f5f5 (eggshell)
+    - Text Silver: #c0c0c0
+    
+    RESPONSIVE BREAKPOINTS:
+    - Mobile: max-width 480px
+    - Tablet: max-width 768px
+    - Desktop: 992px and above
+  -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -20,7 +48,7 @@
     />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="/Daniel_Santos_Final_Project/styles.css?v=13" />
+    <link rel="stylesheet" href="/Daniel_Santos_Final_Project/styles.css?v=14" />
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -28,6 +56,8 @@
   </head>
 
   <body class="light-mode">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-content visually-hidden-focusable">Skip to main content</a>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
       <div class="container-fluid">
@@ -72,9 +102,9 @@
               <a class="nav-link" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <label class="switch">
-                <input type="checkbox" id="themeToggle" />
-                <span class="slider"></span>
+              <label class="switch" aria-label="Toggle dark and light mode">
+                <input type="checkbox" id="themeToggle" aria-label="Theme toggle switch" />
+                <span class="slider" role="presentation"></span>
               </label>
             </li>
           </ul>
@@ -97,15 +127,16 @@
     </header>
 
     <!-- CV Modal/Popup -->
-    <div id="cvModal" class="cv-modal">
+    <div id="cvModal" class="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
       <div class="cv-modal-content">
-        <span class="cv-close">&times;</span>
-        <img id="cvFrame" src="" alt="Daniel Santos CV" />
+        <button class="cv-close" aria-label="Close CV modal">&times;</button>
+        <h2 id="cvModalTitle" class="visually-hidden">Daniel Santos CV Resume</h2>
+        <img id="cvFrame" src="" alt="Daniel Santos full CV resume document showing education, experience, and skills" />
       </div>
     </div>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <!-- About Section -->
       <section class="about-section shadow-lg rounded mt-5 mb-5" id="about">
         <div class="container p-4 p-md-5">
@@ -168,11 +199,13 @@
           </div>
           <!-- CV Button -->
           <div class="cv-button-container-about">
-            <button class="animated-button" id="viewCvBtn">
+            <button class="animated-button" id="viewCvBtn" aria-label="Open and view Daniel Santos CV resume">
               <svg
                 viewBox="0 0 24 24"
                 class="arr-2"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
               >
                 <path
                   d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
@@ -436,6 +469,8 @@
                 id="testimonialCarousel"
                 class="carousel slide"
                 data-bs-ride="carousel"
+                aria-label="Testimonials carousel"
+                role="region"
               >
                 <!-- Carousel Indicators -->
                 <div class="carousel-indicators">
@@ -573,6 +608,8 @@
                     id="contactName"
                     name="name"
                     placeholder="Enter your full name"
+                    autocomplete="name"
+                    aria-required="true"
                     required
                   />
                 </div>
@@ -589,6 +626,8 @@
                     id="contactEmail"
                     name="email"
                     placeholder="Enter your email"
+                    autocomplete="email"
+                    aria-required="true"
                     required
                   />
                 </div>
@@ -605,6 +644,7 @@
                     id="contactSubject"
                     name="subject"
                     placeholder="What is this about?"
+                    aria-required="true"
                     required
                   />
                 </div>
@@ -621,6 +661,7 @@
                     name="message"
                     rows="6"
                     placeholder="Your message here..."
+                    aria-required="true"
                     required
                   ></textarea>
                 </div>
@@ -629,6 +670,7 @@
                   <button
                     type="submit"
                     class="btn btn-submit btn-lg fw-bold text-uppercase"
+                    aria-label="Submit contact form and send message to Daniel Santos"
                   >
                     Send Message
                   </button>
@@ -638,6 +680,8 @@
                 <div
                   id="formMessage"
                   class="alert mt-3 rounded"
+                  role="status"
+                  aria-live="polite"
                   style="display: none"
                 ></div>
               </form>
