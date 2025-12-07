@@ -764,6 +764,7 @@ body.light-mode .cv-button:hover:before {
 @media (max-width: 480px) {
     .about-section {
         padding: 1.5rem 1rem;
+        padding-top: 10rem !important;
         margin: 0;
         border-radius: 0;
         overflow-y: auto;
@@ -791,6 +792,9 @@ body.light-mode .cv-button:hover:before {
 @media (max-width: 480px) {
     .skills-section {
         padding: 1.5rem 1rem;
+        padding-top: 10rem !important;
+        margin: 0;
+        border-radius: 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -1227,6 +1231,7 @@ body.light-mode .cv-button:hover:before {
 @media (max-width: 480px) {
     .projects-section {
         padding: 1.5rem 1rem;
+        padding-top: 10rem !important;
         margin: 0;
         border-radius: 0;
     }
@@ -1652,6 +1657,7 @@ body.light-mode .cv-button:hover:before {
 @media (max-width: 480px) {
     .contact-section {
         padding: 1.5rem 1rem;
+        padding-top: 10rem !important;
         margin: 0;
         border-radius: 0;
     }
