@@ -1969,97 +1969,225 @@ body.light-mode .back-to-top-btn {
     }
 }
 
-/* Army Photo Card */
-.army-card {
-  width: 195px;
-  height: 285px;
-  background: #313131;
-  border-radius: 20px;
+/* Military Lanyard ID Card */
+.lanyard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
-  transition: 0.2s ease-in-out;
+  padding: 2rem 0;
   position: relative;
-  overflow: hidden;
+  perspective: 1000px;
 }
 
-.army-img {
-  height: 30%;
-  width: auto;
+.lanyard-string {
+  width: 6px;
+  height: 60px;
+  background: repeating-linear-gradient(
+    90deg,
+    #555 0px,
+    #666 2px,
+    #777 4px,
+    #666 6px,
+    #555 8px
+  );
+  border-radius: 3px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: lanyard-sway 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.lanyard-string::before {
+  content: '';
   position: absolute;
-  transition: 0.2s ease-in-out;
-  z-index: 1;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #444;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes lanyard-sway {
+  0%, 100% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(2deg);
+  }
+  75% {
+    transform: rotateZ(-2deg);
+  }
+}
+
+.lanyard-card {
+  width: 350px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab;
+  animation: lanyard-swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.lanyard-card:hover {
+  animation-play-state: paused;
+  transform: rotateY(5deg) translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.lanyard-card:active {
+  cursor: grabbing;
+  transform: rotateY(0deg) translateY(-5px);
+}
+
+@keyframes lanyard-swing {
+  0%, 100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateZ(1deg) rotateY(-3deg);
+  }
+  75% {
+    transform: rotateZ(-1deg) rotateY(3deg);
+  }
+}
+
+.lanyard-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid var(--accent);
+}
+
+.lanyard-photo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.army-textBox {
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  transition: 0.2s ease-in-out;
-  z-index: 2;
+.lanyard-info {
+  padding: 1.5rem 1rem;
+  background: #333;
 }
 
-.army-textBox > .army-text {
-  font-weight: bold;
-  margin: 0;
-}
-
-.army-textBox > .army-head {
-  font-size: 20px;
+.lanyard-name {
   font-family: 'Rostex', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 1.5px;
+  text-align: center;
 }
 
-.army-textBox > .army-price {
-  font-size: 17px;
+.lanyard-role {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  color: #aaa;
+  margin: 0 0 0.3rem 0;
+  text-align: center;
 }
 
-.army-textBox > span {
-  font-size: 12px;
-  color: lightgrey;
+.lanyard-status {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-.army-card:hover > .army-textBox {
-  opacity: 1;
+.lanyard-barcode {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #444;
 }
 
-.army-card:hover > .army-img {
-  height: 65%;
-  filter: blur(7px);
-  animation: armyAnim 3s infinite;
+.barcode-badge {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 }
 
-@keyframes armyAnim {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+.barcode-line:nth-child(2) {
+  width: 5px;
 }
 
-.army-card:hover {
-  transform: scale(1.04) rotate(-1deg);
+.barcode-line:nth-child(4) {
+  width: 4px;
 }
 
 /* Light mode adjustments */
-body.light-mode .army-card {
+body.light-mode .lanyard-card {
+  background: #f5f5f5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .lanyard-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .lanyard-photo {
   background: #e0e0e0;
+}
+
+body.light-mode .lanyard-info {
+  background: #fff;
+}
+
+body.light-mode .lanyard-name {
   color: #000;
 }
 
-body.light-mode .army-textBox > span {
-  color: #666;
+body.light-mode .lanyard-role {
+  color: #555;
+}
+
+body.light-mode .lanyard-barcode {
+  background: #e8e8e8;
+  border-top: 1px solid #ccc;
+}
+
+body.light-mode .barcode-line {
+  background: #000;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .lanyard-container {
+    padding: 1rem 0;
+  }
+
+  .lanyard-card {
+    width: 280px;
+  }
+
+  .lanyard-name {
+    font-size: 1.1rem;
+  }
+
+  .lanyard-role {
+    font-size: 0.85rem;
+  }
+
+  .lanyard-status {
+    font-size: 0.75rem;
+  }
 }
 
 
