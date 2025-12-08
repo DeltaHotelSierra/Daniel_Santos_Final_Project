@@ -1792,9 +1792,13 @@ footer.footer {
   border: none;
   color: #fff;
   background: none;
-  position: relative;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   padding-bottom: 2em;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .back-to-top-btn > div,
