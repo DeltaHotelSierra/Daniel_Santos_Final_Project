@@ -200,10 +200,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Check if this is a header element
+                const isHeader = entry.target.tagName === 'HEADER';
                 // Check if this is a detail page (leadership or kali)
                 const isDetailPage = entry.target.classList.contains('project-detail-section');
                 
-                if (isDetailPage) {
+                if (isHeader) {
+                    // Header: animate name-banner and profile-image
+                    const headerElements = entry.target.querySelectorAll('.name-banner, .profile-image');
+                    headerElements.forEach((element) => {
+                        element.classList.add('fade-in-up');
+                    });
+                } else if (isDetailPage) {
                     // Detail pages: animate individual elements top to bottom
                     const allElements = Array.from(entry.target.querySelectorAll('h2, h3, h4, h5, h6, p, ul, .back-button, .lanyard-images'));
                     
@@ -249,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             } else {
-                // Section is out of view - reset for next time
+                // Section/Header is out of view - reset for next time
                 const allElements = entry.target.querySelectorAll('.fade-in-up');
                 allElements.forEach((element) => {
                     element.classList.remove('fade-in-up');
@@ -263,5 +271,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
         observer.observe(section);
+    });
+
+    // Observe header elements
+    const headers = document.querySelectorAll('header');
+    headers.forEach(header => {
+        observer.observe(header);
     });
 });

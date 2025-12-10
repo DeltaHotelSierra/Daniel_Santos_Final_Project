@@ -48,6 +48,17 @@ body.light-mode {
     }
 }
 
+@keyframes fadeInUpCentered {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
 .fade-in-up {
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
@@ -636,6 +647,12 @@ body.light-mode .cv-button-wrapper a::after {
     align-items: center;
     justify-content: center;
     line-height: 0;
+}
+
+.profile-image.fade-in-up {
+    opacity: 0;
+    animation: fadeInUpCentered 0.6s ease-out forwards;
+    animation-delay: 0.1s;
 }
 
 .profile-image img {
