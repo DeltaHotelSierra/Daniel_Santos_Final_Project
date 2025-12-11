@@ -1131,7 +1131,7 @@ body.light-mode .cv-button-wrapper a::after {
 
 .skill-percentage {
     font-size: 0.75rem;
-    color: #b0b0b0;
+    color: #d0d0d0;
     font-weight: 500;
     margin-top: 0.25rem;
     font-family: 'Orbitron', sans-serif;
@@ -1526,22 +1526,26 @@ body.light-mode .cv-button-wrapper a::after {
 
 .testimonial-role {
     font-size: 0.9rem;
-    color: var(--accent);
+    color: #d0d0d0;
     font-family: 'Orbitron', sans-serif;
 }
 
 /* Carousel Customization */
 .carousel-indicators [data-bs-target] {
     background-color: var(--muted-silver);
-    width: 12px;
-    height: 12px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     transition: all 0.3s ease;
+    margin: 0 8px;
+    border: none;
+    opacity: 0.5;
 }
 
 .carousel-indicators .active {
     background-color: var(--accent);
-    width: 16px;
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .carousel-control-prev-icon,
@@ -2761,6 +2765,10 @@ body.light-mode .social-icon {
 
 body.light-mode .skill-icon-img.white-icon {
   filter: brightness(0);
+}
+
+body.light-mode .skill-percentage {
+  color: #333333;
 }
 
 /* ============================================
