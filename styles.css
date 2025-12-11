@@ -481,19 +481,19 @@ body:not(.light-mode) .main__scroll-box svg path:last-child {
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-top: 8.5rem;
+  margin-top: 11rem;
 }
 
 @media (min-width: 992px) {
   .cv-button-wrapper {
-    margin-top: 8.5rem;
+    margin-top: 11rem;
   }
 }
 
 /* Mobile alignment */
 @media (max-width: 991px) {
   .cv-button-wrapper {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 }
 
@@ -1468,7 +1468,8 @@ body.light-mode .cv-button-wrapper a::after {
     border-radius: 15px;
     padding: 2.5rem 2rem;
     text-align: center;
-    height: 500px;
+    min-height: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1499,6 +1500,7 @@ body.light-mode .cv-button-wrapper a::after {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    margin: auto;
 }
 
 .testimonial-text p::before {
@@ -1579,6 +1581,7 @@ body.light-mode .cv-button-wrapper a::after {
     .testimonial-card {
         padding: 2rem 1.5rem;
         min-height: 350px;
+        height: auto;
     }
 
     .testimonial-text p {
@@ -1614,6 +1617,7 @@ body.light-mode .cv-button-wrapper a::after {
     .testimonial-card {
         padding: 2rem 1.25rem;
         min-height: 300px;
+        height: auto;
     }
 
     .testimonial-text p {
